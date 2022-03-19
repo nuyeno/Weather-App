@@ -50,6 +50,11 @@ function showTemperature(response) {
   tempLow.innerHTML = `Low: ${tempLowData}°F`;
   let tempDescription = document.querySelector("#weather-description");
   tempDescription.innerHTML = response.data.weather[0].main;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function search(city) {
