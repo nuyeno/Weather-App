@@ -42,12 +42,9 @@ function showTemperature(response) {
   let humidity = document.querySelector("#humidity");
   let humidityData = response.data.main.humidity;
   humidity.innerHTML = `Humidity: ${humidityData}%`;
-  let tempHigh = document.querySelector("#high");
-  let tempHighData = Math.round(response.data.main.temp_max);
-  let tempLow = document.querySelector("#low");
-  let tempLowData = Math.round(response.data.main.temp_min);
-  tempHigh.innerHTML = `High: ${tempHighData}°F`;
-  tempLow.innerHTML = `Low: ${tempLowData}°F`;
+  let windSpeed = document.querySelector("#wind-speed");
+  let windSpeedData = Math.round(response.data.wind.speed);
+  windSpeed.innerHTML = `Wind speed: ${windSpeedData} mi/hr`;
   let tempDescription = document.querySelector("#weather-description");
   tempDescription.innerHTML = response.data.weather[0].main;
   let iconElement = document.querySelector("#icon");
