@@ -52,6 +52,7 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  fahrenheitTemperature = response.data.main.temp;
 }
 
 function search(city) {
@@ -79,19 +80,25 @@ function displayCurrentData(event) {
 let currentLocationButton = document.querySelector("#current-button");
 currentLocationButton.addEventListener("click", displayCurrentData);
 
-// Week 4 Bonus
-function toCelsius(click) {
-  click.preventDefault();
-  let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = `16`;
+function displayCelsius(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  convertCtoF.classList.remove("active");
+  convertFtoC.classList.add("active");
 }
-let convertTtoC = document.querySelector("#celsius-link");
-convertTtoC.addEventListener("click", toCelsius);
+let convertFtoC = document.querySelector("#celsius-link");
+convertFtoC.addEventListener("click", displayCelsius);
 
-function toFahrenheit(click) {
-  click.preventDefault();
+function displayFahrenheit(event) {
+  event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = `66`;
+  currentTemp.innerHTML = Math.round(fahrenheitTemperature);
+  convertCtoF.classList.add("active");
+  convertFtoC.classList.remove("active");
 }
 let convertCtoF = document.querySelector("#fahrenheit-link");
-convertCtoF.addEventListener("click", toFahrenheit);
+convertCtoF.addEventListener("click", displayFahrenheit);
+
+let fahrenheitTemperature = null;

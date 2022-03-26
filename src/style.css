@@ -43,6 +43,10 @@ h3 {
   padding: none;
   text-decoration: none;
 }
+
+.units .active {
+  color: black;
+}
 .details {
   font-family: "Playfair Display", serif;
   font-size: 15px;
