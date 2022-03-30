@@ -24,7 +24,29 @@ if (currentMinutes < 10) {
 }
 h2.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
 
-// Week 5
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+                <div class="card">
+                  <div class="weather-icon">☀️</div>
+                  <div class="card-body">
+                    <p class="card-text week-weather">
+                      ${day}
+                      <br />
+                      <span class="forecast-high">79°</span> <span class="forecast-low">68°</span>
+                    </p>
+                  </div>
+                </div>`;
+    forecastHTML = forecastHTML + `</div>`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function cityTempSearch(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input").value;
@@ -102,3 +124,4 @@ let convertCtoF = document.querySelector("#fahrenheit-link");
 convertCtoF.addEventListener("click", displayFahrenheit);
 
 let fahrenheitTemperature = null;
+displayForecast();
