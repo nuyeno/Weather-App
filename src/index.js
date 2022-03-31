@@ -56,6 +56,13 @@ function cityTempSearch(event) {
 let citySearch = document.querySelector("#search-here");
 citySearch.addEventListener("submit", cityTempSearch);
 
+function getForecast(coordinates) {
+  let apiKey = "b28f15f03c06aa01b59bd379d3000b9a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   let tempData = Math.round(response.data.main.temp);
@@ -75,6 +82,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   fahrenheitTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -124,4 +133,3 @@ let convertCtoF = document.querySelector("#fahrenheit-link");
 convertCtoF.addEventListener("click", displayFahrenheit);
 
 let fahrenheitTemperature = null;
-displayForecast();
