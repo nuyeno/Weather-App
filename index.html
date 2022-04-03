@@ -52,7 +52,6 @@
           <br />
           <h2 id="current-data">
             <div id="current-city"><strong></strong></div>
-            <div id="current-day"><em></em></div>
             <span class="temperature" id="temperature"></span>
             <span class="units">
               <a style="text-decoration: none" href="#" id="fahrenheit-link" class="active"
@@ -64,7 +63,7 @@
           </h2>
           <h3>
             <div class="row align-items-center">
-              <div class="col">
+              <div class="col-4">
                 <ul class="details">
                   <li id="humidity">
                     Humidity:
@@ -74,8 +73,16 @@
                   </li>
                 </ul>
               </div>
-              <div class="col current-weather-icon"><img src="" id="icon" alt="weather-icon"></div>
-              <div class="col current-weather-description" id="weather-description"></div>
+              <div class="col-4 current-weather-icon"><img src="" id="icon" alt="weather-icon"></div>
+              <div class="col-4 current-weather-description">
+                <ul class="details">
+                   <li id="current-day">
+                    Last updated: 
+                  </li>
+                  <li id="weather-description">
+                  </li>
+                </ul>
+              </div>
             </div>
         </div>
           </h3>

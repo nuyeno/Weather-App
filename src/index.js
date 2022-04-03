@@ -22,7 +22,7 @@ let currentMinutes = now.getMinutes();
 if (currentMinutes < 10) {
   currentMinutes = `0${currentMinutes}`;
 }
-h2.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
+h2.innerHTML = `Last updated: ${currentDay} ${currentHours}:${currentMinutes}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
