@@ -17,8 +17,6 @@ h5 {
   padding: 20px 0px 0px 0px;
   font-size: 25px;
   margin: 0 auto;
-  position: relative;
-  left: -80px;
 }
 .app-wrapper {
   max-width: 900px;
@@ -57,7 +55,7 @@ h5 {
   font-family: "Playfair Display", serif;
   font-size: 15px;
   list-style: none;
-  padding: 10px;
+  padding: 30px;
 }
 .current-weather-description {
   font-size: 25px;
